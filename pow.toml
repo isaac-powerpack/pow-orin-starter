@@ -1,0 +1,10 @@
+[sim]
+version = "5.1.0"
+ext-folder = []
+
+[sim.settings]
+raytracing-motion = false
+cpu-performance-mode = true
+
+[sim.exts]
+isaacsim.code_editor.vscode = true

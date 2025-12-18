@@ -109,3 +109,6 @@ www/js/*
 
 # Release files
 *.foxe
+
+# Isaac Powerpack
+.pow
