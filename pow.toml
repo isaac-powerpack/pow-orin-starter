@@ -1,10 +1,21 @@
 [sim]
 version = "5.1.0"
-ext-folder = []
+# add paths to additional extension folders
+ext_folder = []
+# Path to Isaac Sim assets, leave empty to use from default nvidia cloud
+# if path is provided, it will use the local assets path
+isaacsim_assets_path = "/media/bemunin/omnicraft/isaacsim_assets"
 
-[sim.settings]
-raytracing-motion = false
-cpu-performance-mode = true
+[sim.ros]
+enable_ros = true
+isaacsim_ros_ws = "~/.pow/IsaacSim-ros_workspaces"
+# support: humble, jazzy
+ros_distro = "humble"
 
-[sim.exts]
-isaacsim.code_editor.vscode = true
+[[sim.profiles]]
+name = "default"
+cpu_performance_mode = true
+headless = false
+extensions = ["isaacsim.code_editor.vscode"]
+raw_args = ["--/renderer/raytracingMotion/enabled=false"]
+open_scene_path = ""
