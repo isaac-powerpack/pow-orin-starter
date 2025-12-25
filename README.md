@@ -9,7 +9,7 @@ A starter template for streamlined NVIDIA Isaac Sim and Isaac ROS workflows on J
 - Manage multiple Isaac Sim application contexts using `pow.toml` profiles
 - Easily download and install Isaac Sim local assets
 
-🚧 This starter repository currently uses the `pow-cli` alpha version `0.1.0a1`, which is under early development.
+🚧 This starter repository currently uses the `pow-cli` alpha version, which is under early development.
 
 📌 For more information and the latest updates, please refer to the [Isaac Powerpack GitHub repository](https://github.com/bemunin/isaac-powerpack).
 
