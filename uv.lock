@@ -12,6 +12,9 @@ resolution-markers = [
     "python_full_version < '3.12' and sys_platform == 'win32'",
 ]
 
+[options]
+prerelease-mode = "allow"
+
 [[package]]
 name = "aioboto3"
 version = "15.1.0"
@@ -1794,15 +1797,15 @@ wheels = [
 
 [[package]]
 name = "pow-cli"
-version = "0.1.0a1"
+version = "0.1.0a2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
     { name = "toml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bc/2f/c7577c05262477e8705f766a1cb457e5e919845c4358106389b9fab1966c/pow_cli-0.1.0a1.tar.gz", hash = "sha256:9c0cb56affcf3276edc36086dfd1889d0eca4800c0abccd132e011edc54003ef", size = 14797, upload-time = "2025-12-23T03:19:37.504Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/dc/42/3bdd3c494a5f1c0a4a6a6c9268ee15d7431a876f54975c0795e482c0be13/pow_cli-0.1.0a2.tar.gz", hash = "sha256:18018b3ab19c7a78c8a0b281e5923f49905062283053ed12562800222800ecc3", size = 14935, upload-time = "2025-12-25T04:25:28.192Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d1/2e/3b07480e087de0358519d8875bcff7fff833cc185c89481a1ceb6d6c30e1/pow_cli-0.1.0a1-py3-none-any.whl", hash = "sha256:5b0d49632d9afe7f77c0eb1cd0ea9d7f6f28468e227db82fea5da93d5b8350bc", size = 19368, upload-time = "2025-12-23T03:19:36.027Z" },
+    { url = "https://files.pythonhosted.org/packages/e9/d0/8e9bac4bc78fb0bec9f9f41334e5714564714affd090ac2cdaaef6a54470/pow_cli-0.1.0a2-py3-none-any.whl", hash = "sha256:8af43da7011f4a11ad0b795e54c3a0136209987efb1b5daf057e68e39e472f3e", size = 19388, upload-time = "2025-12-25T04:25:26.414Z" },
 ]
 
 [[package]]
@@ -1822,7 +1825,7 @@ sim = [
 [package.metadata]
 requires-dist = [
     { name = "isaacsim", extras = ["all", "extscache"], marker = "extra == 'sim'", specifier = "==5.1.0" },
-    { name = "pow-cli", specifier = ">=0.1.0a1" },
+    { name = "pow-cli", specifier = "==0.1.0a2" },
     { name = "toml", specifier = ">=0.10.2" },
 ]
 provides-extras = ["sim"]
