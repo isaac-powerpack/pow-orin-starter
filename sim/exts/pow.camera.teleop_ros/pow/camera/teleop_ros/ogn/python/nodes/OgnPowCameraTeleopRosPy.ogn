@@ -14,28 +14,62 @@
         "categoryDefinitions": "config/CategoryDefinition.json",
         "categories": ["extension:Category"],
         "inputs": {
-            "inputAttribute1": {
-                "type": "int",
-                "uiName": "Input Attribute 1",
-                "description": "Description for this attribute",
-                "default": 0
-            },
-            "inputAttribute2": {
-                "type": "token",
-                "uiName": "Input Attribute 2",
-                "description": "Description for this attribute",
-                "default": "Token1",
+           "execIn": {
+                "type": "execution",
+                "description": "The input execution",
                 "metadata": {
-                    "allowedTokens": [ "Token1", "Token2", "Token3" ]
+                    "uiName": "Exec In"
                 }
+            },
+            "targetPrim":{
+                "type": "target",
+                "optional": true,
+                "uiName": "Target Prim",
+                "description": "The path to the prim to be teleoperated"
+            },
+            "orientationW": {
+                "type": "double",
+                "uiName": "Orientation W",
+                "description": "W component of orientation quaternion",
+                "default": 1.0
+            },
+            "orientationX": {
+                "type": "double",
+                "uiName": "Orientation X",
+                "description": "X component of orientation quaternion",
+                "default": 0.0
+            },
+            "orientationY": {
+                "type": "double",
+                "uiName": "Orientation Y",
+                "description": "Y component of orientation quaternion",
+                "default": 0.0
+            },
+            "orientationZ": {
+                "type": "double",
+                "uiName": "Orientation Z",
+                "description": "Z component of orientation quaternion",
+                "default": 0.0
+            },
+            "positionX": {
+                "type": "double",
+                "uiName": "Position X",
+                "description": "X component of position",
+                "default": 0.0
+            },
+            "positionY": {
+                "type": "double",
+                "uiName": "Position Y",
+                "description": "Y component of position",
+                "default": 0.0
+            },
+            "positionZ": {
+                "type": "double",
+                "uiName": "Position Z",
+                "description": "Z component of position",
+                "default": 0.0
             }
         },
-        "outputs": {
-            "outputAttribute1": {
-                "type": "double",
-                "uiName": "Output Attribute 1",
-                "description": "Description for this attribute"
-            }
-        }
+        "outputs": {}
     }
 }
