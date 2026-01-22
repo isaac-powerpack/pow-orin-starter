@@ -20,3 +20,4 @@ open_scene_path = ""
 [[sim.profiles]]
 name = "perf"
 cpu_performance_mode = true
+open_scene_path = "./sim/assets/ycb_test_scene_v2.usda"

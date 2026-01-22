@@ -27,46 +27,46 @@
                 "uiName": "Target Prim",
                 "description": "The path to the prim to be teleoperated"
             },
-            "orientationW": {
+            "angularX": {
                 "type": "double",
-                "uiName": "Orientation W",
-                "description": "W component of orientation quaternion",
-                "default": 1.0
-            },
-            "orientationX": {
-                "type": "double",
-                "uiName": "Orientation X",
-                "description": "X component of orientation quaternion",
+                "uiName": "Angular X",
+                "description": "X component of angular input",
                 "default": 0.0
             },
-            "orientationY": {
+            "angularY": {
                 "type": "double",
-                "uiName": "Orientation Y",
-                "description": "Y component of orientation quaternion",
+                "uiName": "Angular Y",
+                "description": "Y component of angular input",
                 "default": 0.0
             },
-            "orientationZ": {
+            "angularZ": {
                 "type": "double",
-                "uiName": "Orientation Z",
-                "description": "Z component of orientation quaternion",
+                "uiName": "Angular Z",
+                "description": "Z component of angular input",
                 "default": 0.0
             },
-            "positionX": {
+            "linearX": {
                 "type": "double",
-                "uiName": "Position X",
-                "description": "X component of position",
+                "uiName": "Linear X",
+                "description": "X component of linear input",
                 "default": 0.0
             },
-            "positionY": {
+            "linearY": {
                 "type": "double",
-                "uiName": "Position Y",
-                "description": "Y component of position",
+                "uiName": "Linear Y",
+                "description": "Y component of linear input",
                 "default": 0.0
             },
-            "positionZ": {
+            "linearZ": {
                 "type": "double",
-                "uiName": "Position Z",
-                "description": "Z component of position",
+                "uiName": "Linear Z",
+                "description": "Z component of linear input",
+                "default": 0.0
+            },
+            "time": {
+                "type": "double",
+                "uiName": "Time",
+                "description": "Simulation time in seconds",
                 "default": 0.0
             }
         },

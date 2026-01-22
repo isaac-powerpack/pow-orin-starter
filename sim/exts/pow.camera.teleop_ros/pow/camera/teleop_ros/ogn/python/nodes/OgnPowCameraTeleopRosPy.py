@@ -35,6 +35,8 @@ Collection of OmniGraph tutorials:
   https://docs.omniverse.nvidia.com/kit/docs/omni.graph.tutorials/latest/Overview.html
 """
 
+import math
+
 import numpy as np
 from isaacsim.core.prims import XFormPrim
 from isaacsim.core.utils.numpy.rotations import (
@@ -51,6 +53,7 @@ class OgnPowCameraTeleopRosPyInternalState:
         """Instantiate the per-node state information"""
         self.target_prim: XFormPrim = None
         self.target_prim_path: str = ""
+        self.last_time: float = 0.0
 
 
 class OgnPowCameraTeleopRosPy:
@@ -72,25 +75,37 @@ class OgnPowCameraTeleopRosPy:
             return False
 
         try:
-            # Input values
-            qw = db.inputs.orientationW
-            qx = db.inputs.orientationX
-            qy = db.inputs.orientationY
-            qz = db.inputs.orientationZ
-
-            px = db.inputs.positionX
-            py = db.inputs.positionY
-            pz = db.inputs.positionZ
+            # Input values from .ogn (except execIn, targetPrim)
+            angularX = db.inputs.angularX
+            angularY = db.inputs.angularY
+            angularZ = db.inputs.angularZ
+            linearX = db.inputs.linearX
+            linearY = db.inputs.linearY
+            linearZ = db.inputs.linearZ
+            time = db.inputs.time
 
             if state.target_prim_path != input_target_prim_path:
                 state.target_prim_path = input_target_prim_path
                 state.target_prim = XFormPrim(state.target_prim_path)
 
+            # Approximate delta time to 60 FPS (0.016667s) on first run
+            dt = max(time - state.last_time, 0.016667)
+
+            # Compute delta rotation quaternion from angular velocity
+            angle_x_rad = angularX * dt
+            angle_y_rad = angularY * dt
+            angle_z_rad = angularZ * dt
+
+            # Compute delta position from linear velocity
+            px = linearX * dt
+            py = linearY * dt
+            pz = linearZ * dt
+
             current_pos, current_rot_quat = state.target_prim.get_world_poses()
 
             # Update rotation
             euler_current = quats_to_euler_angles(current_rot_quat)
-            euler_delta = quats_to_euler_angles(np.array([[qw, qx, qy, qz]]))
+            euler_delta = np.array([[angle_x_rad, angle_y_rad, angle_z_rad]])
             euler_new = euler_current + euler_delta
             updated_rot_quat = euler_angles_to_quats(euler_new)
 
@@ -102,6 +117,8 @@ class OgnPowCameraTeleopRosPy:
             delta_pos_target = np.array([[px, py, pz]])
             delta_pos_world = r_yaw.apply(delta_pos_target)
             updated_pos = current_pos + delta_pos_world
+
+            state.last_time = time
 
             state.target_prim.set_world_poses(
                 updated_pos,
