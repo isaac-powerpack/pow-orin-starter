@@ -20,7 +20,7 @@ A starter template for streamlined NVIDIA Isaac Sim and Isaac ROS workflows on J
 2. Install isaacsim 5.1.0 and the pow-cli pre-release package:
    ```bash
    # Create the environment and install packages
-   uv sync --extra sim
+   UV_HTTP_TIMEOUT=300 uv sync --extra sim
    
    # Activate the project virtual environment
    source ./.venv/bin/activate
